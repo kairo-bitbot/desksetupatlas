@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>DeskSetupAtlas — Pins v8</title>
+  <style>
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;margin:24px;background:#0b1220;color:#e2e8f0}
+    a{color:#a5b4fc;text-decoration:none}
+    .grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:16px}
+    figure{margin:0;border:1px solid rgba(148,163,184,.25);border-radius:14px;background:#0f172a;padding:12px}
+    img{width:100%;height:auto;border-radius:10px;display:block}
+    figcaption{margin-top:10px;font-size:13px;color:#94a3b8}
+  </style>
+</head>
+<body>
+  <h1>DeskSetupAtlas — Pins v8 (50)</h1>
+  <p>Gradient template (image background + transparent→solid bottom overlay + text/CTA). Destination: <a href="https://kairo-bitbot.github.io/desksetupatlas/">site</a>.</p>
+  <div class="grid" id="g"></div>
+  <script>
+    const g=document.getElementById('g');
+    const files=[...Array(50)].map((_,i)=>String(i+1).padStart(3,'0')).map(n=>`pin-${n}.png`);
+    for(const f of files){
+      const fig=document.createElement('figure');
+      const img=document.createElement('img');
+      img.src=f;
+      img.alt=f;
+      const cap=document.createElement('figcaption');
+      cap.textContent=f;
+      fig.appendChild(img);
+      fig.appendChild(cap);
+      g.appendChild(fig);
+    }
+  </script>
+</body>
+</html>
